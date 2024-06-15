@@ -96,43 +96,43 @@ Relationship: `/db/benchmark_only_QA/role_relation/homer/questions.json`
 | Model             | RCoV | Model Version | Model context size |
 | ----------------- | :--: | :-----------: | :----------------: |
 | GPT-4             |  0.01   |     0613      |         8k         |
-| GPT-3.5-turbo-16k |  0.014   |     0613      |        16k         |
+| GPT-3.5-Turbo-16K |  0.014   |     0613      |        16k         |
 | Qwen-14B-Chat     |  0.006   |  2023.09.25   |         8k         |
 | Qwen-7B-Chat      |  0.012   |  2023.09.25   |         8k         |
-| Vicuna-13b-16k    |  0.024   |     v1.5      |        16k         |
-| ChatGLM2-6b-32k   |  0.046   |  2023.07.31   |        32k         |
-| Longchat-7b-32k   |  0.118  |     v1.5      |        32k         |
+| Vicuna-13B-16K    |  0.024   |     v1.5      |        16k         |
+| ChatGLM2-6B-32K   |  0.046   |  2023.07.31   |        32k         |
+| Longchat-7B-32K   |  0.118  |     v1.5      |        32k         |
 | XVERSE-13B-Chat   |  0.009   |  2023.08.22   |         8k         |
-| ChatGLM2-6b       |  0.025   |  2023.07.31   |         8k         |
-| Vicuna-7b-16k     |  0.006   |     v1.5      |        16k         |
+| ChatGLM2-6B       |  0.025   |  2023.07.31   |         8k         |
+| Vicuna-7B-16K     |  0.006   |     v1.5      |        16k         |
 
 ##### robustness: surname variants
 | Model             | RCoV | Model Version | Model context size |
 | ----------------- | :--: | :-----------: | :----------------: |
 | GPT-4             |  0.013   |     0613      |         8k         |
-| GPT-3.5-turbo-16k |  0.041   |     0613      |        16k         |
+| GPT-3.5-Turbo-16K |  0.041   |     0613      |        16k         |
 | Qwen-14B-Chat     |  0.012   |  2023.09.25   |         8k         |
 | Qwen-7B-Chat      |  0.012   |  2023.09.25   |         8k         |
-| Vicuna-13b-16k    |  0.025   |     v1.5      |        16k         |
-| ChatGLM2-6b-32k   |  0.02   |  2023.07.31   |        32k         |
-| Longchat-7b-32k   |  0.083   |     v1.5      |        32k         |
+| Vicuna-13B-16K    |  0.025   |     v1.5      |        16k         |
+| ChatGLM2-6B-32K   |  0.02   |  2023.07.31   |        32k         |
+| Longchat-7B-32K   |  0.083   |     v1.5      |        32k         |
 | XVERSE-13B-Chat   |  0.012   |  2023.08.22   |         8k         |
-| ChatGLM2-6b       |  0.058   |  2023.07.31   |         8k         |
-| Vicuna-7b-16k     |  0.035   |     v1.5      |        16k         |
+| ChatGLM2-6B       |  0.058   |  2023.07.31   |         8k         |
+| Vicuna-7B-16K     |  0.035   |     v1.5      |        16k         |
 
 ##### robustness: education variants
 | Model             | RCoV | Model Version | Model context size |
 | ----------------- | :--: | :-----------: | :----------------: |
 | GPT-4             |  0.022   |     0613      |         8k         |
-| GPT-3.5-turbo-16k |  0.026   |     0613      |        16k         |
+| GPT-3.5-Turbo-16K |  0.026   |     0613      |        16k         |
 | Qwen-14B-Chat     |  0.011   |  2023.09.25   |         8k         |
 | Qwen-7B-Chat      |  0.01   |  2023.09.25   |         8k         |
-| Vicuna-13b-16k    |  0.021   |     v1.5      |        16k         |
-| ChatGLM2-6b-32k   |  0.023   |  2023.07.31   |        32k         |
-| Longchat-7b-32k   |  0.091   |     v1.5      |        32k         |
+| Vicuna-13B-16K    |  0.021   |     v1.5      |        16k         |
+| ChatGLM2-6B-32K   |  0.023   |  2023.07.31   |        32k         |
+| Longchat-7B-32K   |  0.091   |     v1.5      |        32k         |
 | XVERSE-13B-Chat   |  0.012   |  2023.08.22   |         8k         |
-| ChatGLM2-6b       |  0.038   |  2023.07.31   |         8k         |
-| Vicuna-7b-16k     |  0.029   |     v1.5      |        16k         |
+| ChatGLM2-6B       |  0.038   |  2023.07.31   |         8k         |
+| Vicuna-7B-16K     |  0.029   |     v1.5      |        16k         |
 
 
 
