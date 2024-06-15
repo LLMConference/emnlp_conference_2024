@@ -1,10 +1,12 @@
-### SimulateBench: How Far Are We from Believable AI Agents? A Framework for Evaluating the Believability of Human Behavior Simulation
+### SimulateBench: How Far Are We from Believable AI? A Benchamrk for Evaluating the Believability of Human Behavior Simulation
 
 ---
 
 
 
-Human behavior simulation of AI agents necessitates the agents to possess a quality of believability, which is crucial as it facilitates users in establishing trust toward the agents and streamlines the fulfillment of the agents' goal. While recent advancements in Large Language Model (LLM) based agents have improved human behavior simulation, challenges inherent to LLMs (e.g., long context modeling) can undermine their believability. Consequently, evaluating AI agent believability becomes imperative. Unfortunately, prior research often neglects the negative impacts of LLM deficiencies. To address these gaps, we introduce two metrics for assessing LLM-based agent believability: consistency and robustness, together with a benchmark, SimulateBench, to evaluate the consistency and robustness of agents implemented with popular LLMs. We find that agents (i) struggle to accurately depict character information when presented with lengthy profile inputs; (ii) exhibit vulnerability to profile perturbations, and (iii) are significantly affected by certain key factors that impact their overall believability. 
+In recent years, AI has demonstrated remarkable capabilities in simulating human behaviors, particularly those implemented with large language models (LLMs). 
+However, due to the lack of systematic evaluation of LLMs' simulations, the believability of LLMs among humans remains ambiguous, i.e., it is unclear which behaviors of LLMs are convincingly human-like and which need further improvements. In this work, we design SimulateBench to evaluate the believability of LLMs when simulating human behaviors. In specific, we evaluate the believability of LLMs based on two critical dimensions: 1) consistency: the extent to which LLMs can behave consistently with the given information of a human to simulate; and
+2) robustness: the ability of LLMs' simulated behaviors to remain robust when faced with perturbations. SimulateBench includes 65 character profiles and a total of 8,400 questions to examine LLMs' simulated behaviors. Based on SimulateBench, we evaluate the performances of 10 widely used LLMs when simulating characters. The experimental results reveal that current LLMs struggle to align their behaviors with assigned characters and are vulnerable to perturbations in certain factors.
 
 
 
@@ -68,9 +70,9 @@ Social Role: `/db/benchmark_only_QA/role_non_relation/homer/questions.json`
 
 Relationship: `/db/benchmark_only_QA/role_relation/homer/questions.json`
 
->To test the agent's consistency ability, we will ask the agent to first simulate the character. Then, we will ask the agent to finsh the corresponding single-choice question in the Consistency Dataset. The accuracy score will be used as the measure of the consistency ability.
+>To test the LLMs' consistency ability, we will ask the LLM to first simulate the character. Then, we will ask the LLM to finsh the corresponding multi-choice question in the Consistency Dataset. The accuracy score will be used as the measure of the consistency ability.
 
->The Robustness Dataset is these datasets whose names are of the format of 'homer_{varients}'. To test agent's robustness ability, the agents is tested by compare their performance on the Consistency dataset and Robustness dataset. For example, if we want to test the agent's robustness ability when faced with age perturbations, we will first change the field of birthday year of homer in the profile, namely from 1956 to 1985. We then ask the agent to simulate homer(`/db/profile/homer/`) and homer_1985(`/db/profile/homer_1985/`) by prompting the two profile to the agent respectively. Then, we will ask the agent to finish the test in the `/db/benchmark_only_QA/{question_type}/homer/questions.json` and `/db/benchmark_only_QA/{question_type}/homer_1985/questions.json` respectively. Then, we can compare the two score on the two dataset to analyse the agent's robustness ability.
+>The Robustness Dataset is these datasets whose names are of the format of 'homer_{varients}'. To test LLMs' robustness ability, the LLMs is tested by compare their performance on the Consistency dataset and Robustness dataset. For example, if we want to test the LLMs' robustness ability when faced with age perturbations, we will first change the field of birthday year of homer in the profile, namely from 1956 to 1985. We then ask the LLM to simulate homer(`/db/profile/homer/`) and homer_1985(`/db/profile/homer_1985/`) by prompting the two profile to the agent respectively. Then, we will ask the LLM to finish the test in the `/db/benchmark_only_QA/{question_type}/homer/questions.json` and `/db/benchmark_only_QA/{question_type}/homer_1985/questions.json` respectively. Then, we can compare the two score on the two dataset to analyse the LLMs' robustness ability.
 
 
 ### Leaderboard
@@ -79,71 +81,62 @@ Relationship: `/db/benchmark_only_QA/role_relation/homer/questions.json`
 ##### Consistency
 | Model             | Score(CA) | Model Version | Model context size |
 | ----------------- | :-------: | :-----------: | :----------------: |
-| GPT-4             |   0.93    |     0613      |         8k         |
-| GPT-3.5-turbo-16k |   0.74    |     0613      |        16k         |
-| Qwen-14B-Chat     |   0.74    |  2023.09.25   |         8k         |
-| Qwen-7B-Chat      |   0.70    |  2023.09.25   |         8k         |
-| Vicuna-13b-16k    |   0.69    |     v1.5      |        16k         |
-| ChatGLM2-6b-32k   |   0.68    |  2023.07.31   |        32k         |
-| Longchat-7b-32k   |   0.66    |     v1.5      |        32k         |
-| XVERSE-13B-Chat   |   0.64    |  2023.08.22   |         8k         |
-| ChatGLM2-6b       |   0.63    |  2023.07.31   |         8k         |
-| Vicuna-7b-16k     |   0.61    |     v1.5      |        16k         |
+| GPT-4             |   0.77    |     0613      |         8k         |
+| GPT-3.5-Turbo-16K |   0.70    |     0613      |        16k         |
+| Qwen-14B-Chat     |   0.60    |  2023.09.25   |         8k         |
+| Qwen-7B-Chat      |   0.53    |  2023.09.25   |         8k         |
+| Vicuna-13B-16K    |   0.59    |     v1.5      |        16k         |
+| ChatGLM2-6B-32K   |   0.55    |  2023.07.31   |        32k         |
+| Longchat-7B-32K   |   0.48    |     v1.5      |        32k         |
+| XVERSE-13B-Chat   |   0.62    |  2023.08.22   |         8k         |
+| ChatGLM2-6B       |   0.49    |  2023.07.31   |         8k         |
+| Vicuna-7B-16K     |   0.46    |     v1.5      |        16k         |
 
 ##### robustness: age variants
 | Model             | RCoV | Model Version | Model context size |
 | ----------------- | :--: | :-----------: | :----------------: |
-| GPT-4             |  1   |     0613      |         8k         |
-| GPT-3.5-turbo-16k |  3   |     0613      |        16k         |
-| Qwen-14B-Chat     |  1   |  2023.09.25   |         8k         |
-| Qwen-7B-Chat      |  2   |  2023.09.25   |         8k         |
-| Vicuna-13b-16k    |  3   |     v1.5      |        16k         |
-| ChatGLM2-6b-32k   |  4   |  2023.07.31   |        32k         |
-| Longchat-7b-32k   |  13  |     v1.5      |        32k         |
-| XVERSE-13B-Chat   |  1   |  2023.08.22   |         8k         |
-| ChatGLM2-6b       |  4   |  2023.07.31   |         8k         |
-| Vicuna-7b-16k     |  2   |     v1.5      |        16k         |
+| GPT-4             |  0.01   |     0613      |         8k         |
+| GPT-3.5-turbo-16k |  0.014   |     0613      |        16k         |
+| Qwen-14B-Chat     |  0.006   |  2023.09.25   |         8k         |
+| Qwen-7B-Chat      |  0.012   |  2023.09.25   |         8k         |
+| Vicuna-13b-16k    |  0.024   |     v1.5      |        16k         |
+| ChatGLM2-6b-32k   |  0.046   |  2023.07.31   |        32k         |
+| Longchat-7b-32k   |  0.118  |     v1.5      |        32k         |
+| XVERSE-13B-Chat   |  0.009   |  2023.08.22   |         8k         |
+| ChatGLM2-6b       |  0.025   |  2023.07.31   |         8k         |
+| Vicuna-7b-16k     |  0.006   |     v1.5      |        16k         |
 
 ##### robustness: surname variants
 | Model             | RCoV | Model Version | Model context size |
 | ----------------- | :--: | :-----------: | :----------------: |
-| GPT-4             |  2   |     0613      |         8k         |
-| GPT-3.5-turbo-16k |  5   |     0613      |        16k         |
-| Qwen-14B-Chat     |  1   |  2023.09.25   |         8k         |
-| Qwen-7B-Chat      |  2   |  2023.09.25   |         8k         |
-| Vicuna-13b-16k    |  4   |     v1.5      |        16k         |
-| ChatGLM2-6b-32k   |  3   |  2023.07.31   |        32k         |
-| Longchat-7b-32k   |  9   |     v1.5      |        32k         |
-| XVERSE-13B-Chat   |  2   |  2023.08.22   |         8k         |
-| ChatGLM2-6b       |  5   |  2023.07.31   |         8k         |
-| Vicuna-7b-16k     |  4   |     v1.5      |        16k         |
+| GPT-4             |  0.013   |     0613      |         8k         |
+| GPT-3.5-turbo-16k |  0.041   |     0613      |        16k         |
+| Qwen-14B-Chat     |  0.012   |  2023.09.25   |         8k         |
+| Qwen-7B-Chat      |  0.012   |  2023.09.25   |         8k         |
+| Vicuna-13b-16k    |  0.025   |     v1.5      |        16k         |
+| ChatGLM2-6b-32k   |  0.02   |  2023.07.31   |        32k         |
+| Longchat-7b-32k   |  0.083   |     v1.5      |        32k         |
+| XVERSE-13B-Chat   |  0.012   |  2023.08.22   |         8k         |
+| ChatGLM2-6b       |  0.058   |  2023.07.31   |         8k         |
+| Vicuna-7b-16k     |  0.035   |     v1.5      |        16k         |
 
 ##### robustness: education variants
 | Model             | RCoV | Model Version | Model context size |
 | ----------------- | :--: | :-----------: | :----------------: |
-| GPT-4             |  2   |     0613      |         8k         |
-| GPT-3.5-turbo-16k |  4   |     0613      |        16k         |
-| Qwen-14B-Chat     |  1   |  2023.09.25   |         8k         |
-| Qwen-7B-Chat      |  2   |  2023.09.25   |         8k         |
-| Vicuna-13b-16k    |  3   |     v1.5      |        16k         |
-| ChatGLM2-6b-32k   |  3   |  2023.07.31   |        32k         |
-| Longchat-7b-32k   |  9   |     v1.5      |        32k         |
-| XVERSE-13B-Chat   |  2   |  2023.08.22   |         8k         |
-| ChatGLM2-6b       |  4   |  2023.07.31   |         8k         |
-| Vicuna-7b-16k     |  3   |     v1.5      |        16k         |
+| GPT-4             |  0.022   |     0613      |         8k         |
+| GPT-3.5-turbo-16k |  0.026   |     0613      |        16k         |
+| Qwen-14B-Chat     |  0.011   |  2023.09.25   |         8k         |
+| Qwen-7B-Chat      |  0.01   |  2023.09.25   |         8k         |
+| Vicuna-13b-16k    |  0.021   |     v1.5      |        16k         |
+| ChatGLM2-6b-32k   |  0.023   |  2023.07.31   |        32k         |
+| Longchat-7b-32k   |  0.091   |     v1.5      |        32k         |
+| XVERSE-13B-Chat   |  0.012   |  2023.08.22   |         8k         |
+| ChatGLM2-6b       |  0.038   |  2023.07.31   |         8k         |
+| Vicuna-7b-16k     |  0.029   |     v1.5      |        16k         |
 
-### Citation 
 
----
 
-```
-@article{xiao2023far,
-  title={How Far Are We from Believable AI Agents? A Framework for Evaluating the Believability of Human Behavior Simulation},
-  author={Xiao, Yang and Cheng, Yi and Fu, Jinlan and Wang, Jiashuo and Li, Wenjie and Liu, Pengfei},
-  journal={arXiv preprint arXiv:2312.17115},
-  year={2023}
-}
-```
+
 
 
 
