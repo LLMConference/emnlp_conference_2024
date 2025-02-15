@@ -1,5 +1,4 @@
-### SimulateBench: How Far Are We from Believable AI? A Benchamrk for Evaluating the Believability of Human Behavior Simulation
-
+### How Far Are LLMs from Believable AI? A Benchmark for Evaluating the Believability of Human Behavior Simulation
 ---
 
 
