@@ -75,64 +75,6 @@ Relationship: `/db/benchmark_only_QA/role_relation/homer/questions.json`
 >The Robustness Dataset is these datasets whose names are of the format of 'homer_{varients}'. To test LLMs' robustness ability, the LLMs is tested by compare their performance on the Consistency dataset and Robustness dataset. For example, if we want to test the LLMs' robustness ability when faced with age perturbations, we will first change the field of birthday year of homer in the profile, namely from 1956 to 1985. We then ask the LLM to simulate homer(`/db/profile/homer/`) and homer_1985(`/db/profile/homer_1985/`) by prompting the two profile to the agent respectively. Then, we will ask the LLM to finish the test in the `/db/benchmark_only_QA/{question_type}/homer/questions.json` and `/db/benchmark_only_QA/{question_type}/homer_1985/questions.json` respectively. Then, we can compare the two score on the two dataset to analyse the LLMs' robustness ability.
 
 
-### Leaderboard
-
----
-##### Consistency
-| Model             | Score(CA) | Model Version | Model context size |
-| ----------------- | :-------: | :-----------: | :----------------: |
-| GPT-4             |   0.77    |     0613      |         8k         |
-| GPT-3.5-Turbo-16K |   0.70    |     0613      |        16k         |
-| Qwen-14B-Chat     |   0.60    |  2023.09.25   |         8k         |
-| Qwen-7B-Chat      |   0.53    |  2023.09.25   |         8k         |
-| Vicuna-13B-16K    |   0.59    |     v1.5      |        16k         |
-| ChatGLM2-6B-32K   |   0.55    |  2023.07.31   |        32k         |
-| Longchat-7B-32K   |   0.48    |     v1.5      |        32k         |
-| XVERSE-13B-Chat   |   0.62    |  2023.08.22   |         8k         |
-| ChatGLM2-6B       |   0.49    |  2023.07.31   |         8k         |
-| Vicuna-7B-16K     |   0.46    |     v1.5      |        16k         |
-
-##### robustness: age variants
-| Model             | RCoV | Model Version | Model context size |
-| ----------------- | :--: | :-----------: | :----------------: |
-| GPT-4             |  0.01   |     0613      |         8k         |
-| GPT-3.5-Turbo-16K |  0.014   |     0613      |        16k         |
-| Qwen-14B-Chat     |  0.006   |  2023.09.25   |         8k         |
-| Qwen-7B-Chat      |  0.012   |  2023.09.25   |         8k         |
-| Vicuna-13B-16K    |  0.024   |     v1.5      |        16k         |
-| ChatGLM2-6B-32K   |  0.046   |  2023.07.31   |        32k         |
-| Longchat-7B-32K   |  0.118  |     v1.5      |        32k         |
-| XVERSE-13B-Chat   |  0.009   |  2023.08.22   |         8k         |
-| ChatGLM2-6B       |  0.025   |  2023.07.31   |         8k         |
-| Vicuna-7B-16K     |  0.006   |     v1.5      |        16k         |
-
-##### robustness: surname variants
-| Model             | RCoV | Model Version | Model context size |
-| ----------------- | :--: | :-----------: | :----------------: |
-| GPT-4             |  0.013   |     0613      |         8k         |
-| GPT-3.5-Turbo-16K |  0.041   |     0613      |        16k         |
-| Qwen-14B-Chat     |  0.012   |  2023.09.25   |         8k         |
-| Qwen-7B-Chat      |  0.012   |  2023.09.25   |         8k         |
-| Vicuna-13B-16K    |  0.025   |     v1.5      |        16k         |
-| ChatGLM2-6B-32K   |  0.02   |  2023.07.31   |        32k         |
-| Longchat-7B-32K   |  0.083   |     v1.5      |        32k         |
-| XVERSE-13B-Chat   |  0.012   |  2023.08.22   |         8k         |
-| ChatGLM2-6B       |  0.058   |  2023.07.31   |         8k         |
-| Vicuna-7B-16K     |  0.035   |     v1.5      |        16k         |
-
-##### robustness: education variants
-| Model             | RCoV | Model Version | Model context size |
-| ----------------- | :--: | :-----------: | :----------------: |
-| GPT-4             |  0.022   |     0613      |         8k         |
-| GPT-3.5-Turbo-16K |  0.026   |     0613      |        16k         |
-| Qwen-14B-Chat     |  0.011   |  2023.09.25   |         8k         |
-| Qwen-7B-Chat      |  0.01   |  2023.09.25   |         8k         |
-| Vicuna-13B-16K    |  0.021   |     v1.5      |        16k         |
-| ChatGLM2-6B-32K   |  0.023   |  2023.07.31   |        32k         |
-| Longchat-7B-32K   |  0.091   |     v1.5      |        32k         |
-| XVERSE-13B-Chat   |  0.012   |  2023.08.22   |         8k         |
-| ChatGLM2-6B       |  0.038   |  2023.07.31   |         8k         |
-| Vicuna-7B-16K     |  0.029   |     v1.5      |        16k         |
 
 
 
